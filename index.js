@@ -1,17 +1,14 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const fileUpload = require('express-fileupload')
 require("dotenv").config();
 const ObjectId = require('mongodb').ObjectId;
 const port = process.env.PORT || 5000;
 
 // MiddleWare
 app.use(express.json()); //instead of bodyparser
-// app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-// app.use(express.static('doctors'))
-// app.use(fileUpload())
+
 
 // Server Root
 app.get("/", (req, res) => {
@@ -142,10 +139,6 @@ app.get('/product/:id', (req, res) =>{
             })
             .catch(err => console.log(err))
     });
-
-
-// });
-
 });
 
 app.listen(process.env.PORT || port);
